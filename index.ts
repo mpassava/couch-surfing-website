@@ -1,6 +1,8 @@
-const returningUserDisplay = document.querySelector('#returning-user');
-const userNameDisplay = document.querySelector('#user');
+const returningUserDisplay = document.querySelector("#returning-user");
+const userNameDisplay = document.querySelector("#user");
 const reviewTotalDisplay = document.querySelector("#reviews");
+
+let isOpen: boolean;
 
 const reviews = [
   {
@@ -23,49 +25,57 @@ const reviews = [
   },
 ];
 
-const getLatestReview = (arr: Array<any>) => {
-  const latestDate = Math.max(...arr.map(r => new Date(r.date).getTime()));
+const getLatestReview = (
+  arr: Array<{
+    name: string;
+    stars: number;
+    loyaltyUser: boolean;
+    date: string;
+  }>
+) => {
+  const latestDate = Math.max(...arr.map((r) => new Date(r.date).getTime()));
   const latestReview = arr.filter(
-    r => new Date(r.date).getTime() === latestDate
+    (r) => new Date(r.date).getTime() === latestDate
   )[0];
   return latestReview;
 };
 
 function showReviewTotal(
   arrLen: number,
-  { name, loyaltyUser }: { name: string, loyaltyUser: boolean }
+  { name, loyaltyUser }: { name: string; loyaltyUser: boolean }
 ) {
   reviewTotalDisplay.innerHTML = `Total Reviews ${arrLen.toString()} | Latest by ${name} ${
-    loyaltyUser ? '⭐' : ''
-}`;
+    loyaltyUser ? "⭐" : ""
+  }`;
 }
 
 showReviewTotal(reviews.length, getLatestReview(reviews));
 
 type User = {
-  userName: {
-    firstName: string,
-    lastName: string
-  },
-  isReturning: boolean
+  Name: {
+    firstName: string;
+    lastName: string;
+  };
+  isReturning: boolean;
+  age: number;
+  stayedAt: string[];
 };
 
 const you: User = {
-  userName: {
-    firstName: 'Bobby',
-    lastName: 'Brown'
+  Name: {
+    firstName: "Bobby",
+    lastName: "Brown",
   },
   isReturning: true,
-}
+  age: 35,
+  stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
+};
 
-function populateUser ({
-  isReturning,
-  userName:{ firstName, lastName }
-}: User) {
-  if (isReturning){
-    returningUserDisplay.innerHTML = 'back'
+function populateUser({ isReturning, Name: { firstName, lastName } }: User) {
+  if (isReturning) {
+    returningUserDisplay.innerHTML = "back";
   }
-  userNameDisplay.innerHTML = `${firstName} ${lastName}`
+  userNameDisplay.innerHTML = `${firstName} ${lastName}`;
 }
 
-populateUser(you)
+populateUser(you);
