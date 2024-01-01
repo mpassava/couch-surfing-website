@@ -32,6 +32,48 @@ const you: User = {
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
 
+const properties: Property[] = [
+  {
+    image: '../assets/villas_villa_coast_bank.jpg',
+    title: "Tuscan Villa",
+    price: 250,
+    address: {
+      firstLine: "135 Tuscany Ct",
+      city: "Tuscany",
+      code: 55545,
+      country: "Italy",
+    },
+    contact: "vincenzo@gmail.com",
+    isAvailable: true,
+  },
+  {
+    image: '../assets/diladitated_camp_river_swamp.jpg',
+    title: "Florida Swamp Home",
+    price: 35,
+    address: {
+      firstLine: "555 Alligator Rd",
+      city: "Swampsville",
+      code: 33555,
+      country: "United States",
+    },
+    contact: "FloridaMan@gmail.com",
+    isAvailable: true, 
+  },
+  {
+    image: '../assets/cabin_snow_winter_lake.jpg',
+    title: "Canadian Cabin",
+    price: 175,
+    address: {
+      firstLine: "9542 Hoser Way",
+      city: "Saskatoon",
+      code: 90604,
+      country: "Canada",
+    },
+    contact: "yourbuddyguy@gmail.com",
+    isAvailable: false,
+  },
+];
+
 // functions
 showReviewTotal(reviews.length, getLatestReview(reviews));
 populateUser(you);
