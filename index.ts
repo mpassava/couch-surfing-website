@@ -1,5 +1,7 @@
-import { User, Review, Property } from "./types";
-import { populateUser, getLatestReview, showReviewTotal } from "./utils";
+import { User, Review, Property } from "./types.js";
+import { populateUser, getLatestReview, showReviewTotal } from "./utils.js";
+
+const propertiesDisplay = document.querySelector('.properties');
 
 const reviews: Review[] = [
   {
@@ -48,7 +50,7 @@ const properties: Property[] = [
   },
   {
     image: '../assets/diladitated_camp_river_swamp.jpg',
-    title: "Florida Swamp Home",
+    title: "Florida Swamp Shack",
     price: 35,
     address: {
       firstLine: "555 Alligator Rd",

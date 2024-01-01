@@ -1,7 +1,6 @@
-var returningUserDisplay = document.querySelector('#returning-user');
-var userNameDisplay = document.querySelector('#user');
-var reviewTotalDisplay = document.querySelector("#reviews");
-var reviews = [
+import { populateUser, getLatestReview, showReviewTotal } from "./utils.js";
+const propertiesDisplay = document.querySelector('.properties');
+const reviews = [
     {
         name: "Sheia",
         stars: 5,
@@ -21,29 +20,57 @@ var reviews = [
         date: "03-27-2021",
     },
 ];
-var getLatestReview = function (arr) {
-    var latestDate = Math.max.apply(Math, arr.map(function (r) { return new Date(r.date).getTime(); }));
-    var latestReview = arr.filter(function (r) { return new Date(r.date).getTime() === latestDate; })[0];
-    return latestReview;
-};
-function showReviewTotal(arrLen, _a) {
-    var name = _a.name, loyaltyUser = _a.loyaltyUser;
-    reviewTotalDisplay.innerHTML = "Total Reviews ".concat(arrLen.toString(), " | Latest by ").concat(name, " ").concat(loyaltyUser ? '⭐' : '');
-}
-showReviewTotal(reviews.length, getLatestReview(reviews));
-var you = {
-    userName: {
-        firstName: 'Bobby',
-        lastName: 'Brown'
+const you = {
+    Name: {
+        firstName: "Bobby",
+        lastName: "Brown",
     },
     isReturning: true,
+    age: 35,
+    stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
-function populateUser(isReturning, _a) {
-    var firstName = _a.firstName, lastName = _a.lastName;
-    if (isReturning) {
-        returningUserDisplay.innerHTML = 'back';
-    }
-    userNameDisplay.innerHTML = "".concat(firstName, " ").concat(lastName);
-}
-populateUser(you.isReturning, you.userName);
+const properties = [
+    {
+        image: '../assets/villas_villa_coast_bank.jpg',
+        title: "Tuscan Villa",
+        price: 250,
+        address: {
+            firstLine: "135 Tuscany Ct",
+            city: "Tuscany",
+            code: 55545,
+            country: "Italy",
+        },
+        contact: "vincenzo@gmail.com",
+        isAvailable: true,
+    },
+    {
+        image: '../assets/diladitated_camp_river_swamp.jpg',
+        title: "Florida Swamp Shack",
+        price: 35,
+        address: {
+            firstLine: "555 Alligator Rd",
+            city: "Swampsville",
+            code: 33555,
+            country: "United States",
+        },
+        contact: "FloridaMan@gmail.com",
+        isAvailable: true,
+    },
+    {
+        image: '../assets/cabin_snow_winter_lake.jpg',
+        title: "Canadian Cabin",
+        price: 175,
+        address: {
+            firstLine: "9542 Hoser Way",
+            city: "Saskatoon",
+            code: 90604,
+            country: "Canada",
+        },
+        contact: "yourbuddyguy@gmail.com",
+        isAvailable: false,
+    },
+];
+// functions
+showReviewTotal(reviews.length, getLatestReview(reviews));
+populateUser(you);
 //# sourceMappingURL=index.js.map
