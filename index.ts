@@ -51,11 +51,18 @@ const you = {
 }
 
 
-function populateUser( isReturning: boolean, { firstName, lastName }: { firstName: string, lastName: string} ) {
+// function populateUser( isReturning: boolean, { firstName, lastName }: { firstName: string, lastName: string} ) {
+function populateUser ({
+  isReturning,
+  userName:{ firstName, lastName }
+}: {
+  isReturning: boolean,
+  userName:{ firstName: string, lastName: string }
+}) {
   if (isReturning){
     returningUserDisplay.innerHTML = 'back'
   }
   userNameDisplay.innerHTML = `${firstName} ${lastName}`
 }
 
-populateUser( you.isReturning, you.userName )
+populateUser(you)
