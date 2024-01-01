@@ -1,4 +1,4 @@
-import { User, Review } from "./types";
+import { User, Review, Property } from "./types";
 import { populateUser, getLatestReview, showReviewTotal } from "./utils";
 
 const reviews: Review[] = [
