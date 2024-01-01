@@ -42,7 +42,15 @@ function showReviewTotal(
 
 showReviewTotal(reviews.length, getLatestReview(reviews));
 
-const you = {
+type User = {
+  userName: {
+    firstName: string,
+    lastName: string
+  },
+  isReturning: boolean
+};
+
+const you: User = {
   userName: {
     firstName: 'Bobby',
     lastName: 'Brown'
@@ -50,15 +58,10 @@ const you = {
   isReturning: true,
 }
 
-
-// function populateUser( isReturning: boolean, { firstName, lastName }: { firstName: string, lastName: string} ) {
 function populateUser ({
   isReturning,
   userName:{ firstName, lastName }
-}: {
-  isReturning: boolean,
-  userName:{ firstName: string, lastName: string }
-}) {
+}: User) {
   if (isReturning){
     returningUserDisplay.innerHTML = 'back'
   }
