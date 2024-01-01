@@ -76,6 +76,25 @@ const properties: Property[] = [
   },
 ];
 
+function renderProperties(array: Property[]) {
+  let propertiesCards: string = '';
+  array.forEach((property: Property) => {
+    propertiesCards += 
+      `
+        <div class="card">
+          <div>
+            <h3>${property.title}</h3>
+          </div>
+          <img src="${property.image}" width="200">
+        </div>
+      `
+  })
+  console.log(propertiesCards)
+  propertiesDisplay.innerHTML = propertiesCards;
+}
+
+renderProperties(properties);
+
 // functions
 showReviewTotal(reviews.length, getLatestReview(reviews));
 populateUser(you);

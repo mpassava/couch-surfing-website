@@ -70,6 +70,23 @@ const properties = [
         isAvailable: false,
     },
 ];
+function renderProperties(array) {
+    let propertiesCards = '';
+    array.forEach((property) => {
+        propertiesCards +=
+            `
+        <div class="card">
+          <div>
+            <h3>${property.title}</h3>
+          </div>
+          <img src="${property.image}" width="200">
+        </div>
+      `;
+    });
+    console.log(propertiesCards);
+    propertiesDisplay.innerHTML = propertiesCards;
+}
+renderProperties(properties);
 // functions
 showReviewTotal(reviews.length, getLatestReview(reviews));
 populateUser(you);
