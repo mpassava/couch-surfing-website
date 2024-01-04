@@ -1,7 +1,7 @@
 import { User, Review, Property } from "./types.js";
 import { populateUser, getLatestReview, showReviewTotal } from "./utils.js";
 
-const propertiesDisplay = document.querySelector('.properties');
+const propertiesDisplay = document.querySelector(".properties");
 
 const reviews: Review[] = [
   {
@@ -36,7 +36,7 @@ const you: User = {
 
 const properties: Property[] = [
   {
-    image: '../assets/villas_villa_coast_bank.jpg',
+    image: "../assets/villas_villa_coast_bank.jpg",
     title: "Tuscan Villa",
     price: 250,
     address: {
@@ -49,7 +49,7 @@ const properties: Property[] = [
     isAvailable: true,
   },
   {
-    image: '../assets/diladitated_camp_river_swamp.jpg',
+    image: "../assets/diladitated_camp_river_swamp.jpg",
     title: "Florida Swamp Shack",
     price: 35,
     address: {
@@ -59,10 +59,10 @@ const properties: Property[] = [
       country: "United States",
     },
     contact: [+11234567890, "FloridaMan@gmail.com"],
-    isAvailable: true, 
+    isAvailable: true,
   },
   {
-    image: '../assets/cabin_snow_winter_lake.jpg',
+    image: "../assets/cabin_snow_winter_lake.jpg",
     title: "Canadian Cabin",
     price: 175,
     address: {
@@ -77,19 +77,18 @@ const properties: Property[] = [
 ];
 
 function renderProperties(array: Property[]) {
-  let propertiesCards: string = '';
+  let propertiesCards: string = "";
   array.forEach((property: Property) => {
-    propertiesCards += 
-      `
+    propertiesCards += `
         <div class="card">
           <div>
             <h3>${property.title}</h3>
           </div>
           <img src="${property.image}" width="200" height="150">
         </div>
-      `
-  })
-  console.log(propertiesCards)
+      `;
+  });
+
   propertiesDisplay.innerHTML = propertiesCards;
 }
 
@@ -98,3 +97,8 @@ renderProperties(properties);
 // functions
 showReviewTotal(reviews.length, getLatestReview(reviews));
 populateUser(you);
+
+const footer = document.querySelector(".footer");
+
+let currentLocation: [string, string, number] = ['Tampa', '6:45pm', 65]
+footer.innerHTML = `${currentLocation[0]}  |  ${currentLocation[1]}  |  ${currentLocation[2]}°`
