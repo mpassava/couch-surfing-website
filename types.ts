@@ -25,6 +25,6 @@ export type Property = {
     code: number;
     country: string;
   }
-  contact: string;
+  contact: [number, string];
   isAvailable: boolean;
 };

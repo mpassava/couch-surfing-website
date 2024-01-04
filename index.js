@@ -40,7 +40,7 @@ const properties = [
             code: 55545,
             country: "Italy",
         },
-        contact: "vincenzo@gmail.com",
+        contact: [+11234567890, "vincenzo@gmail.com"],
         isAvailable: true,
     },
     {
@@ -53,7 +53,7 @@ const properties = [
             code: 33555,
             country: "United States",
         },
-        contact: "FloridaMan@gmail.com",
+        contact: [+11234567890, "FloridaMan@gmail.com"],
         isAvailable: true,
     },
     {
@@ -66,7 +66,7 @@ const properties = [
             code: 90604,
             country: "Canada",
         },
-        contact: "yourbuddyguy@gmail.com",
+        contact: [+11234567890, "yourbuddyguy@gmail.com"],
         isAvailable: false,
     },
 ];
@@ -79,7 +79,7 @@ function renderProperties(array) {
           <div>
             <h3>${property.title}</h3>
           </div>
-          <img src="${property.image}" width="200">
+          <img src="${property.image}" width="200" height="150">
         </div>
       `;
     });
