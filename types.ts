@@ -1,8 +1,14 @@
+export enum Permissions {
+  ADMIN,
+  READ_ONLY
+}
+
 export type User = {
   Name: {
     firstName: string;
     lastName: string;
   };
+  permissions: Permissions;
   isReturning: boolean;
   age: number;
   stayedAt: string[];
@@ -28,3 +34,4 @@ export type Property = {
   contact: [number, string];
   isAvailable: boolean;
 };
+

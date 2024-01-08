@@ -1,4 +1,4 @@
-import { User, Review, Property } from "./types.js";
+import { Permissions, User, Review, Property } from "./types.js";
 import { populateUser, getLatestReview, showReviewTotal } from "./utils.js";
 
 const propertiesDisplay = document.querySelector(".properties");
@@ -29,6 +29,7 @@ const you: User = {
     firstName: "Bobby",
     lastName: "Brown",
   },
+  permissions: Permissions.ADMIN,
   isReturning: true,
   age: 35,
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
